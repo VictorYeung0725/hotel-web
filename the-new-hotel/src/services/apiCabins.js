@@ -10,3 +10,18 @@ export async function getCabins() {
 
   return data;
 }
+
+export async function deleteCabins(id) {
+  const { data, error } = await supabase
+    .from('cabins')
+    .delete()
+    // .eq('some_column', 'someValue');
+    .eq('id', id);
+
+  if (error) {
+    console.log(error);
+    throw new Error('Cabins can not be loaded');
+  }
+
+  return data;
+}

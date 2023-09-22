@@ -16,7 +16,8 @@ import AppLayout from './ui/AppLayout';
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000,
+      // staleTime: 60 * 1000,
+      staleTime: 0,
     },
   },
 });
@@ -35,9 +36,9 @@ function App() {
             <Route path="cabins" element={<Cabins />} />
             <Route path="login" element={<Login />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="users" element={<Users />} />
           </Route>
 
-          <Route path="users" element={<Users />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
